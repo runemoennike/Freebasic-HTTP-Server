@@ -1,0 +1,47 @@
+
+PRINT "Content-type: text/html"
+PRINT ""
+
+'$DYNAMIC
+
+'''''
+'' GET handler
+DIM SHARED HTTPGETVARS(0 TO 0) AS STRING
+getst$ = ENVIRON$("QUERYSTRING")
+
+numVars = 0
+lstSpl = 0
+IF LEN(getst$) > 0 THEN
+lstSpl = 0
+DO
+spl = INSTR(lstSpl + 1, getst$, "&")
+IF NOT spl > 0 THEN
+REDIM SHARED HTTPGETVARS(0 TO numVars) AS STRING
+HTTPGETVARS(numVars) = MID$(getst$, lstSpl + 1)
+EXIT DO
+ELSE
+REDIM SHARED HTTPGETVARS(0 TO numVars) AS STRING
+HTTPGETVARS(numVars) = MID$(getst$, lstSpl + 1, spl - lstSpl - 1)
+numVars = numVars + 1
+lstSpl = spl
+END IF
+LOOP
+END IF
+'' END GET handler
+'''''
+
+
+PRINT "Test of dynamicly qbasic generated html pages:<br>"
+
+FOR a = 1 TO 5
+PRINT "<font size='+" + LTRIM$(STR$(a)) + "'>font size" + STR$(a) + "</font>"
+NEXT a
+
+PRINT "<p>GET string: " + COMMAND$
+PRINT "<p>Query-string: " + ENVIRON$("QUERY_STRING")
+
+PRINT "<p><form action='test.bas' method='get'>Type something here: <input name='text'> <input type='submit' value='Gogogo!'> </form>"
+
+
+SYSTEM
+

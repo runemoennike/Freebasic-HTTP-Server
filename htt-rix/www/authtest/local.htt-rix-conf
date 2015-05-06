@@ -1,0 +1,9 @@
+#
+# Local conf file
+#
+
+[authentication]
+AuthOpt: pwdfile -> www/authtest/local.htt-rix-usrdb #note how it is relative to the server root
+AuthOpt: realm -> Test of authentication
+AuthOpt: grant -> user1 user2 user3
+# or: AuthOpt grant -> any-valid

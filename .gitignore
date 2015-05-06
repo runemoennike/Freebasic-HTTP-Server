@@ -1,0 +1,4 @@
+htt-rix/logs/*.log
+ftp-rix/logs/*.log
+htt-rix/tmp/*.TMP
+htt-rix/tmp/*.tmp

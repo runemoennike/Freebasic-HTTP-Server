@@ -1,0 +1,18 @@
+This is a test of THTML
+<p>
+Server-side including index page:
+
+<br><hr><br>
+<!--:INCLUDE(index.html)-->
+<br><hr><br>
+
+Server signature: <!--:SERVER_SIGNATURE--><br>
+Remote address: <!--:ENV(REMOTE_ADDR)-->
+
+<p>
+
+Including MD5 php script:
+<br>
+<br><hr><br>
+<!--:INCLUDE(test.php)-->
+<br><hr><br>

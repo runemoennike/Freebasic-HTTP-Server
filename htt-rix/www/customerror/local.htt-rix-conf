@@ -1,0 +1,6 @@
+#
+# Local conf file
+#
+
+[errorpages]
+SetError: 404 -> error404.html
